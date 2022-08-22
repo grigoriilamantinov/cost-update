@@ -1,6 +1,10 @@
 package com.cashline.costupdate.services;
 
 
-public interface CostService {
+import com.cashline.costupdate.dto.CostDTO;
 
+import java.util.List;
+
+public interface CostService {
+    List<CostDTO> getCostsForSave(List<CostDTO> newCosts, List<CostDTO> currentCosts);
 }

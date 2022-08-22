@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.util.Date;
 
@@ -13,7 +14,8 @@ import java.util.Date;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-public class CurrentCosts {
+@ToString
+public class CostDTO implements Cloneable{
     private long id;
     private String productCode;
     private int number;
@@ -21,4 +23,13 @@ public class CurrentCosts {
     private Date begin;
     private Date end;
     private long value;
+
+    @Override
+    public CostDTO clone() {
+        try {
+            return (CostDTO) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
+    }
 }
